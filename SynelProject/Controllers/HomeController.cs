@@ -69,7 +69,8 @@ namespace SynelProject.Controllers
                people = await _personService.CreateAsync(stream);
             }
             ViewBag.Message = $"Inserted {people.Count()} Records!";
-            return View("Views/Home/Index.cshtml", _mapper.Map<IEnumerable<PersonViewModel>>(people));
+            ViewBag.People = _mapper.Map<IEnumerable<PersonViewModel>>(people);
+            return View("Views/Home/Index.cshtml");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -25,11 +25,11 @@ namespace SynelProject
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-           // services.AddDbContext<AppDbContext>(options => options
-           //                                                .UseSqlServer(Environment.GetEnvironmentVariable("MSSQL_CONNECTION_STRING")));
-
             services.AddDbContext<AppDbContext>(options => options
-                                                           .UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+                                                           .UseSqlServer(Environment.GetEnvironmentVariable("MSSQL_CONNECTION_STRING")));
+
+            //services.AddDbContext<AppDbContext>(options => options
+            //                                             .UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddAutoMapper(typeof(Startup));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<ICSVReaderService, CSVReaderService>();

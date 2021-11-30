@@ -7,6 +7,9 @@ EXPOSE 80
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
 COPY ["SynelProject/SynelProject.csproj", "SynelProject/"]
+COPY ["BusinessLevel/BusinessLevel.csproj", "BusinessLevel/"]
+COPY ["DataAccessLevel/DataAccessLevel.csproj", "DataAccessLevel/"]
+COPY ["DatabaseLevel/DatabaseLevel.csproj", "DatabaseLevel/"]
 RUN dotnet restore "SynelProject/SynelProject.csproj"
 COPY . .
 WORKDIR "/src/SynelProject"
