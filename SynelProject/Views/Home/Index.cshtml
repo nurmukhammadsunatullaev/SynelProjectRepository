@@ -1,0 +1,67 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<style>
+    table {
+        margin-top:10px;
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+
+<form asp-action="FileUpload" enctype="multipart/form-data" asp-controller="Home">
+    <input type="file" name="file" />
+    <input type="submit" />
+</form>
+<table >
+    @model IEnumerable<SynelProject.Models.ViewModels.PersonViewModel>
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Payroll)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Surname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Birthday)
+        </td>
+        <th>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </th>
+        <th>
+            @Html.DisplayFor(modelItem => item.Mobile)
+        </th>
+        <th>
+            @Html.DisplayFor(modelItem => item.Postcode)
+        </th>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address_2)
+        </td>
+        <th>
+            @Html.DisplayFor(modelItem => item.Start)
+        </th>
+    </tr>
+    }
+</table>
