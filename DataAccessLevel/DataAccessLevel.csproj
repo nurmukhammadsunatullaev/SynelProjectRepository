@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Interfaces\" />
+    <None Remove="Repositories\" />
+    <None Remove="Interfaces\Base\" />
+    <None Remove="Services\" />
+    <None Remove="Services\Base\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Interfaces\" />
+    <Folder Include="Repositories\" />
+    <Folder Include="Interfaces\Base\" />
+    <Folder Include="Services\" />
+    <Folder Include="Services\Base\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DatabaseLevel\DatabaseLevel.csproj" />
+  </ItemGroup>
+</Project>

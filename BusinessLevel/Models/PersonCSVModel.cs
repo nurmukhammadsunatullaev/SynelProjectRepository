@@ -1,9 +1,8 @@
 ﻿using System;
-namespace SynelProject.Models.ViewModels
+namespace BusinessLevel.Models
 {
     public class PersonCSVModel
     {
-
         public string Payroll_Number { get; set; }
         public string Forenames { get; set; }
         public string Surname { get; set; }

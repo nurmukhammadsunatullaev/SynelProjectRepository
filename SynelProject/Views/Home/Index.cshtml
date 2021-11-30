@@ -1,9 +1,10 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+
 <style>
     table {
-        margin-top:10px;
+        margin-top: 10px;
         font-family: arial, sans-serif;
         border-collapse: collapse;
         width: 100%;
@@ -24,44 +25,71 @@
     <input type="file" name="file" />
     <input type="submit" />
 </form>
-<table >
-    @model IEnumerable<SynelProject.Models.ViewModels.PersonViewModel>
-    @foreach (var item in Model)
+
+<label style="margin-top: 10px; margin-bottom: 10px">Message:  </label>  @ViewBag.Message
+
+@model PersonViewModel
+@if (Model != null)
+{
+    <form method="post" action="/edit">
+        <input asp-for="Id" type="hidden"  /> <br />
+        <input asp-for="Payroll" type="text"  /><br />
+        <input asp-for="Name" type="text"  /><br />
+        <input asp-for="Surname" type="text"  /><br />
+        <input asp-for="Birthday" type="text"  /><br />
+        <input asp-for="Phone" type="text" /><br />
+        <input asp-for="Mobile" type="text" /><br />
+        <input asp-for="Postcode" type="text"  /><br />
+        <input asp-for="Address" type="text" /><br />
+        <input asp-for="Address_2" type="text"  /><br />
+        <input asp-for="Start" type="text"  /><br />
+        <input  type="submit" value="Update" />
+    </form>
+}
+
+<table>
+    @foreach (PersonViewModel item in ViewBag.People)
     {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Id)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Payroll)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Surname)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Birthday)
-        </td>
-        <th>
-            @Html.DisplayFor(modelItem => item.Phone)
-        </th>
-        <th>
-            @Html.DisplayFor(modelItem => item.Mobile)
-        </th>
-        <th>
-            @Html.DisplayFor(modelItem => item.Postcode)
-        </th>
-        <td>
-            @Html.DisplayFor(modelItem => item.Address)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Address_2)
-        </td>
-        <th>
-            @Html.DisplayFor(modelItem => item.Start)
-        </th>
-    </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Payroll)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Birthday)
+            </td>
+            <th>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.Mobile)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.Postcode)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address_2)
+            </td>
+            <th>
+                @Html.DisplayFor(modelItem => item.Start)
+            </th>
+            <th>
+                <a href="/edit/@item.Id">Edit</a>
+            </th>
+            <th>
+                <a href="/delete/@item.Id">Delete</a>
+            </th>
+        </tr>
     }
 </table>

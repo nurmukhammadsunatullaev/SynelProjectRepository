@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace SynelProject.Models.EntityModels
+namespace DatabaseLevel.EntityModels
 {
     public class PersonEntityModel
     {

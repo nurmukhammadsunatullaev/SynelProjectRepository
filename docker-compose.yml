@@ -1,8 +1,0 @@
-version: '3.4'
-
-services:
-  synelproject:
-    image: ${DOCKER_REGISTRY-}synelproject
-    build:
-      context: .
-      dockerfile: SynelProject/Dockerfile

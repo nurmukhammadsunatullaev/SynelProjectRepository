@@ -3,17 +3,16 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Text;
+using BusinessLevel.Interfaces;
+using BusinessLevel.Mappers;
+using BusinessLevel.Models;
 using CsvHelper;
-using SynelProject.Mappers;
-using SynelProject.Models.EntityModels;
-using SynelProject.Models.ViewModels;
 
-namespace SynelProject.Services
+namespace BusinessLevel.Services
 {
-    public class CSVReaderService
+    public class CSVReaderService : ICSVReaderService
     {
-        public List<PersonCSVModel> ReadCSVFile(Stream stream)
+        public IEnumerable<PersonCSVModel> Read(Stream stream)
         {
             try
             {

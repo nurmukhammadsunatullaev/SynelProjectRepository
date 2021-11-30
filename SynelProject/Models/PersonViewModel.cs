@@ -1,5 +1,5 @@
 ﻿using System;
-namespace SynelProject.Models.ViewModels
+namespace SynelProject.Models
 {
     public class PersonViewModel
     {

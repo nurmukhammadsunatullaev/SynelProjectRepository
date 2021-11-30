@@ -1,9 +1,9 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace SynelProject.Migrations
+namespace DatabaseLevel.Migrations
 {
-    public partial class CreatePersonTable : Migration
+    public partial class InitProjectMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

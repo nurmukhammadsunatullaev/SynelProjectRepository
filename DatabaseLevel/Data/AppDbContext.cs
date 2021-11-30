@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿
+using DatabaseLevel.EntityModels;
 using Microsoft.EntityFrameworkCore;
-using SynelProject.Models.EntityModels;
 
-namespace SynelProject.Data
+
+namespace DatabaseLevel.Data
 {
     public class AppDbContext : DbContext
     {

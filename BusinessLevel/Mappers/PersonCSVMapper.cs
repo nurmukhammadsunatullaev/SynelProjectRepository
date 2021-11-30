@@ -1,9 +1,8 @@
-﻿using System;
-using System.Globalization;
+﻿using System.Globalization;
+using BusinessLevel.Models;
 using CsvHelper.Configuration;
-using SynelProject.Models.ViewModels;
 
-namespace SynelProject.Mappers
+namespace BusinessLevel.Mappers
 {
     public sealed class PersonCSVMapper: ClassMap<PersonCSVModel>
     {

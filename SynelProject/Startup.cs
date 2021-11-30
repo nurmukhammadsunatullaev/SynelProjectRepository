@@ -1,13 +1,15 @@
 ﻿using System;
+using BusinessLevel.Interfaces;
+using BusinessLevel.Services;
+using DataAccessLevel.Services;
+using DataAccessLevel.Services.Base;
+using DatabaseLevel.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using SynelProject.Data;
-using SynelProject.Repositories;
-using SynelProject.Services;
 
 namespace SynelProject
 {
@@ -23,15 +25,15 @@ namespace SynelProject
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<AppDbContext>(options => options
-                                                           .UseSqlServer(Environment.GetEnvironmentVariable("MSSQL_CONNECTION_STRING")));
+           // services.AddDbContext<AppDbContext>(options => options
+           //                                                .UseSqlServer(Environment.GetEnvironmentVariable("MSSQL_CONNECTION_STRING")));
 
-            //services.AddDbContext<AppDbContext>(options => options
-            //                                               .UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<AppDbContext>(options => options
+                                                           .UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddAutoMapper(typeof(Startup));
-            services.AddScoped<PersonRepository, PersonRepository>();
-            services.AddScoped<PersonService, PersonService>();
-            services.AddScoped<CSVReaderService, CSVReaderService>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<ICSVReaderService, CSVReaderService>();
+            services.AddScoped<IPersonService, PersonService>();
             services.AddControllersWithViews();
         }
 
